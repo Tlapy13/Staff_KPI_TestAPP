@@ -40,7 +40,7 @@ namespace DB
         public static string GetConnectionString()
         {
             string conString = @ConfigurationManager.AppSettings["conString"];
-            conString = "Data Source=S05SIST-TST;Initial Catalog=SI_STAFF_KPI_CK-VYTLACOVANI;User ID=staff;Password=ZnJlAAAAcABvAHIAbQBhAG4AYwBlADEA";
+            //conString = "Data Source=S05SIST-TST;Initial Catalog=SI_STAFF_KPI_CK-VYTLACOVANI;User ID=staff;Password=ZnJlAAAAcABvAHIAbQBhAG4AYwBlADEA";
 
             if (string.IsNullOrEmpty(conString))
             {
