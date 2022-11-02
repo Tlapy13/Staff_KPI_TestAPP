@@ -55,15 +55,15 @@ namespace Staff_KPI_TestAPP
             int SHIFTSID = 3;
 
             List<SqlParameter> paramLst = new List<SqlParameter>();
-            paramLst.Add(DB_Common.GetNewParam("@LEAVE_DATE", SqlDbType.DateTime, LEAVE_DATE));
-            paramLst.Add(DB_Common.GetNewParam("@ENTRY_DATE", SqlDbType.DateTime, ENTRY_DATE));
-            paramLst.Add(DB_Common.GetNewParam("@PERSONAL_NR", SqlDbType.VarChar, PERSONAL_NR));
-            paramLst.Add(DB_Common.GetNewParam("@NAME", SqlDbType.VarChar, NAME));
-            paramLst.Add(DB_Common.GetNewParam("@DEPARTMENT", SqlDbType.VarChar, DEPARTMENT));
-            paramLst.Add(DB_Common.GetNewParam("@ORGCENTER", SqlDbType.VarChar, ORGCENTER));
-            paramLst.Add(DB_Common.GetNewParam("@NOTE", SqlDbType.VarChar, NOTE));
-            paramLst.Add(DB_Common.GetNewParam("@CLASSID", SqlDbType.Int, CLASSID));
-            paramLst.Add(DB_Common.GetNewParam("@SHIFTSID", SqlDbType.Int, SHIFTSID));
+            paramLst.Add(General_Functionality.GetNewParam("@LEAVE_DATE", SqlDbType.DateTime, LEAVE_DATE));
+            paramLst.Add(General_Functionality.GetNewParam("@ENTRY_DATE", SqlDbType.DateTime, ENTRY_DATE));
+            paramLst.Add(General_Functionality.GetNewParam("@PERSONAL_NR", SqlDbType.VarChar, PERSONAL_NR));
+            paramLst.Add(General_Functionality.GetNewParam("@NAME", SqlDbType.VarChar, NAME));
+            paramLst.Add(General_Functionality.GetNewParam("@DEPARTMENT", SqlDbType.VarChar, DEPARTMENT));
+            paramLst.Add(General_Functionality.GetNewParam("@ORGCENTER", SqlDbType.VarChar, ORGCENTER));
+            paramLst.Add(General_Functionality.GetNewParam("@NOTE", SqlDbType.VarChar, NOTE));
+            paramLst.Add(General_Functionality.GetNewParam("@CLASSID", SqlDbType.Int, CLASSID));
+            paramLst.Add(General_Functionality.GetNewParam("@SHIFTSID", SqlDbType.Int, SHIFTSID));
 
             int updatedLines = DB_Business.UpdateEmployee(paramLst);
 
@@ -78,6 +78,9 @@ namespace Staff_KPI_TestAPP
             gridView1.Columns.Clear();
         }
 
-      
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            SingletonDB sg = SingletonDB.Instance;
+        }
     }
 }

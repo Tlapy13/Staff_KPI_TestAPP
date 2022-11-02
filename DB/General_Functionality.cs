@@ -10,6 +10,24 @@ namespace DB
 {
     public class General_Functionality
     {
+        #region ConnectionString
+        private static string GetConnectionString()
+        {
+            SingletonDB sg = SingletonDB.Instance;
+            return sg.GetDBConnection();
+        }
+        #endregion
+
+        #region Params
+
+        public static SqlParameter GetNewParam(string name, SqlDbType type, object value)
+        {
+            SqlParameter param = new SqlParameter(name, type);
+            param.Value = value;
+            return param;
+        }
+        #endregion
+
         #region Select
 
         /// <summary>
@@ -24,7 +42,7 @@ namespace DB
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(DB.DB_Common.GetConnectionString()))
+                using (SqlConnection connection = new SqlConnection(GetConnectionString()))
                 {
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(SQL, connection))
@@ -60,7 +78,7 @@ namespace DB
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(DB.DB_Common.GetConnectionString()))
+                using (SqlConnection connection = new SqlConnection(GetConnectionString()))
                 {
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(SQL, connection))
@@ -96,7 +114,7 @@ namespace DB
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(DB.DB_Common.GetConnectionString()))
+                using (SqlConnection connection = new SqlConnection(GetConnectionString()))
                 {
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(SQL, connection))

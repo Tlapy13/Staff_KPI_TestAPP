@@ -111,6 +111,7 @@ namespace Staff_KPI_TestAPP
             this.Controls.Add(this.gridControl1);
             this.Name = "Form1";
             this.Text = "TestForm";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);

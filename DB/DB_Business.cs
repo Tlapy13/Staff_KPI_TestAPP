@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
-using static DB.SQL_Commands;
+using static DB.SQL_Commands.Select_Commands;
+using static DB.SQL_Commands.Update_Commands;
 
 namespace DB
 {
@@ -37,7 +38,7 @@ namespace DB
             string SQL = GetSQLforGetOperationID();
 
             List<SqlParameter> paramLst = new List<SqlParameter>();
-            paramLst.Add(DB_Common.GetNewParam("@BARCODE", SqlDbType.VarChar, barcode));
+            paramLst.Add(General_Functionality.GetNewParam("@BARCODE", SqlDbType.VarChar, barcode));
             return General_Functionality.SelectData(SQL, paramLst);    
     }
 
